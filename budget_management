@@ -1,0 +1,132 @@
+#task 1
+
+class BudgetCategory:
+    def __init__(self, category_name, allocated_budget):
+        self.__category_name = category_name
+        self.__allocated_budget = allocated_budget
+    
+    def get_category_name(self):
+        return self.__category_name
+    
+    def get_allocated_budget(self):
+        return self.__allocated_budget
+    
+    def set_allocated_budget(self, new_allocated_budget):
+        self.__allocated_budget = new_allocated_budget
+
+
+#task 2
+
+class BudgetCategory:
+    def __init__(self, category_name, allocated_budget):
+        self.__category_name = category_name
+        self.__allocated_budget = allocated_budget
+    
+    def get_category_name(self):
+        return self.__category_name
+    
+    def get_allocated_budget(self):
+        return self.__allocated_budget
+    
+    def set_category_name(self, new_category_name):
+        self.__category_name = new_category_name
+    
+    def set_allocated_budget(self, new_allocated_budget):
+        if new_allocated_budget > 0:
+            self.__allocated_budget = new_allocated_budget
+        else:
+            print("Error: Allocated budget must be a positive number.")
+
+
+#task 3
+
+class BudgetCategory:
+    def __init__(self, category_name, allocated_budget):
+        self.__category_name = category_name
+        self.__allocated_budget = allocated_budget
+        self.__remaining_budget = allocated_budget
+    
+    def get_category_name(self):
+        return self.__category_name
+    
+    def get_allocated_budget(self):
+        return self.__allocated_budget
+    
+    def get_remaining_budget(self):
+        return self.__remaining_budget
+    
+    def set_category_name(self, new_category_name):
+        self.__category_name = new_category_name
+    
+    def set_allocated_budget(self, new_allocated_budget):
+        if new_allocated_budget > 0:
+            self.__allocated_budget = new_allocated_budget
+            self.__remaining_budget = new_allocated_budget
+        else:
+            print("Error: Allocated budget must be a positive number.")
+    
+    def add_expense(self, expense_amount):
+        if expense_amount > 0:
+            if expense_amount <= self.__remaining_budget:
+                self.__remaining_budget -= expense_amount
+                print(f"Expense of ${expense_amount} added to {self.__category_name}.")
+            else:
+                print("Error: Expense amount exceeds remaining budget.")
+        else:
+            print("Error: Expense amount must be a positive number.")
+
+
+#task 4
+
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def display(self):
+        print(f"Name: {self.name}")
+        print(f"Price: ${self.price}")
+
+
+class Electronics(Product):
+    def __init__(self, name, price, brand):
+        super().__init__(name, price)
+        self.brand = brand
+
+    def display(self):
+        super().display()
+        print(f"Brand: {self.brand}")
+
+
+class Books(Product):
+    def __init__(self, name, price, author):
+        super().__init__(name, price)
+        self.author = author
+
+    def display(self):
+        super().display()
+        print(f"Author: {self.author}")
+
+
+class Clothing(Product):
+    def __init__(self, name, price, size):
+        super().__init__(name, price)
+        self.size = size
+
+    def display(self):
+        super().display()
+        print(f"Size: {self.size}")
+
+
+# Instantiate objects of each subclass
+electronics_product = Electronics("Laptop", 1200, "Dell")
+books_product = Books("Python Programming", 30, "Guido van Rossum")
+clothing_product = Clothing("T-shirt", 20, "Large")
+
+# Call their display methods
+print("Electronics Product:")
+electronics_product.display()
+print("\nBooks Product:")
+books_product.display()
+print("\nClothing Product:")
+clothing_product.display()
